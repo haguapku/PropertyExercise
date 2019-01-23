@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="propertyList"
+            type="com.example.propertyexercise.model.Listing"/>
+    </data>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/RecyclerViewItemStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="5dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/info_property"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/viewPager">
+
+                <LinearLayout
+                    android:id="@+id/fullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent">
+
+                    <TextView
+                        android:id="@+id/nameView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:text="@{propertyList.owner.name}" />
+
+                    <TextView
+                        android:id="@+id/surnameView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@{propertyList.owner.lastName}"
+                        android:layout_marginStart="5dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/fullname">
+
+                    <TextView
+                        android:id="@+id/addressView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:text="@{propertyList.Location.Address}" />
+
+                    <TextView
+                        android:id="@+id/stateView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:text="@{propertyList.Location.State}"
+                        android:layout_marginStart="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/roomlayout"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/address">
+
+                    <TextView
+                        android:id="@+id/bedroom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="@{propertyList.Bedrooms}"/>
+                    <ImageView
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/bedroom"
+                        android:contentDescription="@string/bedroom"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/bathroom"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{propertyList.Bathrooms}"
+                        android:layout_marginStart="10dp" />
+                    <ImageView
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/bathroom"
+                        android:contentDescription="@string/bathroom"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:id="@+id/carpark"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{propertyList.Carspaces}"
+                        android:layout_marginStart="10dp" />
+                    <ImageView
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@mipmap/carpark"
+                        android:contentDescription="@string/carpark"
+                        android:layout_marginStart="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintRight_toRightOf="parent">
+                    <ImageView
+                        android:id="@+id/agentId"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:imageUrl="@{propertyList.owner.image.medium.url}"
+                        android:contentDescription="@string/Agent" />
+                </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
+
+</layout>

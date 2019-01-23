@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PropertyExercise</string>
+    <string name="Agent">Agent profile</string>
+    <string name="bedroom">bedroom</string>
+    <string name="bathroom">bathroom</string>
+    <string name="carpark">carpark</string>
+    <string name="id">ID</string>
+</resources>
